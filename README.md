@@ -112,11 +112,11 @@ enum NonTerminal: SwiParsable {
 Define the reduction actions for each rule of the grammar :
 
 ```Swift
-func sum(a: Int, op _: Substring, b: Int) -> Int { a + b }
-func minus(a: Int, op _: Substring, b: Int) -> Int { a - b }
+func sum(a: Int, _: Substring, b: Int) -> Int { a + b }
+func minus(a: Int, _: Substring, b: Int) -> Int { a - b }
 
-func times(a: Int, op _: Substring, b: Int) -> Int { a * b }
-func divide(a: Int, op _: Substring, b: Int) -> Int { a / b }
+func times(a: Int, _: Substring, b: Int) -> Int { a * b }
+func divide(a: Int, _: Substring, b: Int) -> Int { a / b }
 
 func parenthesis(_: Substring, a: Int, _: Substring) -> Int { a }
 func toInt(s: Substring) -> Int { Int(s) ?? 0 }
@@ -194,7 +194,7 @@ if we consider the following input string `1 + 2 + 3` (`e1`):
 
 - With a `shift` (`right associativity`) the result will be computed as the following:
 
-`1`  => `1 +` => `1 + 2`  =>  `1 + 2`  => `1 + 2 +` => `1 + 2 + 3` => `1 + 5` => `6`
+`1`  => `1 +` => `1 + 2` => `1 + 2 +` => `1 + 2 + 3` => `1 + 5` => `6`
 
 **In other words:**
 
@@ -221,7 +221,7 @@ if we consider the following input string `1 + 2 * 3` (`e1`):
 
 - With a `shift` (`+ > *`) the result will be computed as the following:
 
-`1`  => `1 +` => `1 + 2`  =>  `1 + 2`  => `1 + 2 *` => `1 + 2 * 3` => `1 + 6` => `7`
+`1`  => `1 +` => `1 + 2` => `1 + 2 *` => `1 + 2 * 3` => `1 + 6` => `7`
 
 **In other words:**
 
@@ -258,11 +258,11 @@ enum NonTerminal: SwiParsable {
 Define the reduction actions for each rule of the grammar :
 
 ```Swift
-func sum(a: Int, op _: Substring, b: Int) -> Int { a + b }
-func minus(a: Int, op _: Substring, b: Int) -> Int { a - b }
+func sum(a: Int, _: Substring, b: Int) -> Int { a + b }
+func minus(a: Int, _: Substring, b: Int) -> Int { a - b }
 
-func times(a: Int, op _: Substring, b: Int) -> Int { a * b }
-func divide(a: Int, op _: Substring, b: Int) -> Int { a / b }
+func times(a: Int, _: Substring, b: Int) -> Int { a * b }
+func divide(a: Int, _: Substring, b: Int) -> Int { a / b }
 
 func parenthesis(_: Substring, a: Int, _: Substring) -> Int { a }
 func toInt(s: Substring) -> Int { Int(s) ?? 0 }
